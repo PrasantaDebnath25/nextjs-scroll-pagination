@@ -58,27 +58,27 @@ const HomePage = () => {
 
 	useEffect(() => {
 		/**
-         * Load articles as soon as page loads
-         */
+		 * Load articles as soon as page loads
+		 */
 		initArticles();
 	}, []);
 
 	/**
-     * Utility function to load articles
-     */
+	 * Utility function to load articles
+	 */
 	const initArticles = () => {
 		/**
-         * Set loading true before fetching articles
+		 * Set loading true before fetching articles
 		 * Reseting errors if any
-         */
+		 */
 		setError(false);
 		setLoading(true);
 		getArticles(DEFAULT_QUERY, page)
 			.then((data) => {
 				if (!data.error && data !== undefined) {
 					/**
-                     * Set articles data if no error
-                     */
+					 * Set articles data if no error
+					 */
 					setArticles([
 						...articles,
 						...data.articles
@@ -87,17 +87,17 @@ const HomePage = () => {
 					setHits(Number(data.hits));
 
 					/**
-                     * Reset statuses
-                     */
+					 * Reset statuses
+					 */
 					setError(false);
 					setLoading(false);
 				}
 				else {
 					/**
-                     * If there is any error,
-                     * set loading to false &
-                     * error to true
-                     */
+					 * If there is any error,
+					 * set loading to false &
+					 * error to true
+					 */
 					setError(true);
 					setLoading(false);
 				}
@@ -106,10 +106,10 @@ const HomePage = () => {
 				console.log(error);
 
 				/**
-                 * If this fails,
-                 * set loading to false &
-                 * error to true
-                 */
+				 * If this fails,
+				 * set loading to false &
+				 * error to true
+				 */
 				setError(true);
 				setLoading(false);
 			});
@@ -174,9 +174,9 @@ const HomePage = () => {
 		return (
 			<React.Fragment>
 				{error &&
-				articles.length < hits && (
-					<ShowError>Something went wrong</ShowError>
-				)}
+					articles.length < hits && (
+						<ShowError>Something went wrong</ShowError>
+					)}
 			</React.Fragment>
 		);
 	};
@@ -196,9 +196,9 @@ const HomePage = () => {
 		return (
 			<React.Fragment>
 				{error &&
-				articles.length >= hits && (
-					<ShowError>End of articles</ShowError>
-				)}
+					articles.length >= hits && (
+						<ShowError>End of articles</ShowError>
+					)}
 			</React.Fragment>
 		);
 	};
