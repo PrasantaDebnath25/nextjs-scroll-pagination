@@ -3,6 +3,7 @@ import Layout from '../components/core/Layout';
 import HomePage from '../components/HomePage';
 import { APP_NAME } from '../config';
 const Index = () => {
+	
 	const showHead = () => {
 		/**
 		 * Rendering the head section of web page
